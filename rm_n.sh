@@ -8,4 +8,8 @@ fi
 dir=$1
 sizeByte=$2
 
-find $dir -type f -size +${sizeByte}c -exec rm {} \; 
+delFile=`find $dir -type f -size +${sizeByte}c`
+
+for i in ${delFile}; do
+  rm -iv $i
+done
