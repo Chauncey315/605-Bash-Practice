@@ -11,6 +11,8 @@ elif [[ $# -eq 2 || $# -eq 1 ]] ; then
   done < "${2:-/dev/stdin}") | tail -n+2 | cut -d',' -f"$1" | awk '{sum+=$1}END{print sum/NR}' )
   file=$([ "$2" ] && echo "$2" || echo stdin)
   echo "The sample mean of column #$1 in $file = $mean"
+  exit 0
+
 else
   echo "Unkown error" 1>&2
   exit -1
