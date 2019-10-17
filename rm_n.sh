@@ -2,7 +2,7 @@
 
 if [[ $# -ne 2 ]]; then
   echo "usage: $0 <dir> <n>" 1>&2
-  exit 0
+  exit -1
 fi
 
 dir=$1
@@ -13,3 +13,5 @@ delFile=`find $dir -type f -size +${sizeByte}c`
 for i in ${delFile}; do
   rm -iv $i
 done
+
+exit 0
